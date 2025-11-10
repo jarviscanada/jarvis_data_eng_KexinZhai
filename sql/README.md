@@ -1,4 +1,5 @@
 # Introduction
+This project is a small learning setup for working with a PostgreSQL database. It starts with learning basic SQL in an interactive environment (simple SELECT, filters, and joins) so the user can see results right away. Then it moves to query practice on a real club-style dataset (members, bookings, facilities): writing joins, subqueries, IN, LIKE, and even window functions like row_number() and rank() ? just like the queries we went through. Finally, it adds basic data modeling: entity relationships, primary/foreign keys, and why we normalize tables (1NF, 2NF, 3NF). The users are beginners or junior developers who need to both run SQL and understand how tables are designed. The environment uses docker to run Postgres, bash scripts to load sample data, and git/GitHub to keep everything versioned.
 
 # SQL Queries
 
