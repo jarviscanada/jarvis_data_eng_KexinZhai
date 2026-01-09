@@ -1,0 +1,87 @@
+[2026-01-06T00:36:45.633+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: equity_market_etl.ingest_prices_to_bronze scheduled__2026-01-05T00:00:00+00:00 [queued]>
+[2026-01-06T00:36:45.636+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: equity_market_etl.ingest_prices_to_bronze scheduled__2026-01-05T00:00:00+00:00 [queued]>
+[2026-01-06T00:36:45.636+0000] {taskinstance.py:2170} INFO - Starting attempt 2 of 4
+[2026-01-06T00:36:45.642+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): ingest_prices_to_bronze> on 2026-01-05 00:00:00+00:00
+[2026-01-06T00:36:45.644+0000] {standard_task_runner.py:60} INFO - Started process 70937 to run task
+[2026-01-06T00:36:45.646+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'equity_market_etl', 'ingest_prices_to_bronze', 'scheduled__2026-01-05T00:00:00+00:00', '--job-id', '103', '--raw', '--subdir', 'DAGS_FOLDER/equity_market_etl_dag.py', '--cfg-path', '/tmp/tmpi9n5dzqq']
+[2026-01-06T00:36:45.647+0000] {standard_task_runner.py:88} INFO - Job 103: Subtask ingest_prices_to_bronze
+[2026-01-06T00:36:45.655+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.11/site-packages/***/settings.py:194 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2026-01-06T00:36:45.672+0000] {task_command.py:423} INFO - Running <TaskInstance: equity_market_etl.ingest_prices_to_bronze scheduled__2026-01-05T00:00:00+00:00 [running]> on host 5774462772ae
+[2026-01-06T00:36:45.703+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data-eng' AIRFLOW_CTX_DAG_ID='equity_market_etl' AIRFLOW_CTX_TASK_ID='ingest_prices_to_bronze' AIRFLOW_CTX_EXECUTION_DATE='2026-01-05T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-01-05T00:00:00+00:00'
+[2026-01-06T00:36:49.033+0000] {logging_mixin.py:188} INFO - [ingest_prices_to_bronze] Wrote skipped report: /opt/data/bronze/prices_audit/skipped_prices_files.txt
+[2026-01-06T02:13:07.311+0000] {clientserver.py:538} INFO - Error while receiving.
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/py4j/clientserver.py", line 516, in send_command
+    raise Py4JNetworkError("Answer from Java side is empty")
+py4j.protocol.Py4JNetworkError: Answer from Java side is empty
+[2026-01-06T02:13:07.422+0000] {clientserver.py:543} INFO - Closing down clientserver connection
+[2026-01-06T02:13:07.437+0000] {java_gateway.py:1055} ERROR - Exception while sending command.
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/py4j/clientserver.py", line 516, in send_command
+    raise Py4JNetworkError("Answer from Java side is empty")
+py4j.protocol.Py4JNetworkError: Answer from Java side is empty
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/py4j/java_gateway.py", line 1038, in send_command
+    response = connection.send_command(command)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/py4j/clientserver.py", line 539, in send_command
+    raise Py4JNetworkError(
+py4j.protocol.Py4JNetworkError: Error while sending or receiving
+[2026-01-06T02:13:07.453+0000] {clientserver.py:543} INFO - Closing down clientserver connection
+[2026-01-06T02:13:07.469+0000] {clientserver.py:543} INFO - Closing down clientserver connection
+[2026-01-06T02:13:07.493+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/opt/airflow/src/ingestion/ingest_prices.py", line 144, in ingest_prices_to_bronze
+    .parquet(p.BRONZE_PRICES_DIR)
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/pyspark/sql/readwriter.py", line 1721, in parquet
+    self._jwrite.parquet(path)
+  File "/home/airflow/.local/lib/python3.11/site-packages/py4j/java_gateway.py", line 1322, in __call__
+    return_value = get_return_value(
+                   ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/pyspark/errors/exceptions/captured.py", line 179, in deco
+    return f(*a, **kw)
+           ^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/py4j/protocol.py", line 334, in get_return_value
+    raise Py4JError(
+py4j.protocol.Py4JError: An error occurred while calling o60256.parquet
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/operators/python.py", line 199, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/operators/python.py", line 216, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/src/ingestion/ingest_prices.py", line 151, in ingest_prices_to_bronze
+    spark.stop()
+  File "/home/airflow/.local/lib/python3.11/site-packages/pyspark/sql/session.py", line 1796, in stop
+    self._sc.stop()
+  File "/home/airflow/.local/lib/python3.11/site-packages/pyspark/context.py", line 654, in stop
+    self._jsc.stop()
+  File "/home/airflow/.local/lib/python3.11/site-packages/py4j/java_gateway.py", line 1321, in __call__
+    answer = self.gateway_client.send_command(command)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/py4j/java_gateway.py", line 1036, in send_command
+    connection = self._get_connection()
+                 ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/py4j/clientserver.py", line 284, in _get_connection
+    connection = self._create_new_connection()
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/py4j/clientserver.py", line 291, in _create_new_connection
+    connection.connect_to_java_server()
+  File "/home/airflow/.local/lib/python3.11/site-packages/py4j/clientserver.py", line 438, in connect_to_java_server
+    self.socket.connect((self.java_address, self.java_port))
+ConnectionRefusedError: [Errno 111] Connection refused
+[2026-01-06T02:13:07.852+0000] {taskinstance.py:1138} INFO - Marking task as UP_FOR_RETRY. dag_id=equity_market_etl, task_id=ingest_prices_to_bronze, execution_date=20260105T000000, start_date=20260106T003645, end_date=20260106T021307
+[2026-01-06T02:13:07.899+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 103 for task ingest_prices_to_bronze ([Errno 111] Connection refused; 70937)
+[2026-01-06T02:13:07.913+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2026-01-06T02:13:07.994+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

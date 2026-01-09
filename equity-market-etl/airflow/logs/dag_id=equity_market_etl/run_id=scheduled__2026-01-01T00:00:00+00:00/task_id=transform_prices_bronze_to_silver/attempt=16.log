@@ -1,0 +1,81 @@
+[2026-01-02T23:11:12.658+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: equity_market_etl.transform_prices_bronze_to_silver scheduled__2026-01-01T00:00:00+00:00 [queued]>
+[2026-01-02T23:11:12.662+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: equity_market_etl.transform_prices_bronze_to_silver scheduled__2026-01-01T00:00:00+00:00 [queued]>
+[2026-01-02T23:11:12.663+0000] {taskinstance.py:2170} INFO - Starting attempt 16 of 19
+[2026-01-02T23:11:12.669+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): transform_prices_bronze_to_silver> on 2026-01-01 00:00:00+00:00
+[2026-01-02T23:11:12.673+0000] {standard_task_runner.py:60} INFO - Started process 812 to run task
+[2026-01-02T23:11:12.675+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'equity_market_etl', 'transform_prices_bronze_to_silver', 'scheduled__2026-01-01T00:00:00+00:00', '--job-id', '63', '--raw', '--subdir', 'DAGS_FOLDER/equity_market_etl_dag.py', '--cfg-path', '/tmp/tmp5h8s2fl9']
+[2026-01-02T23:11:12.676+0000] {standard_task_runner.py:88} INFO - Job 63: Subtask transform_prices_bronze_to_silver
+[2026-01-02T23:11:12.685+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.11/site-packages/***/settings.py:194 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2026-01-02T23:11:12.705+0000] {task_command.py:423} INFO - Running <TaskInstance: equity_market_etl.transform_prices_bronze_to_silver scheduled__2026-01-01T00:00:00+00:00 [running]> on host acb8b3c305b1
+[2026-01-02T23:11:12.858+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data-eng' AIRFLOW_CTX_DAG_ID='equity_market_etl' AIRFLOW_CTX_TASK_ID='transform_prices_bronze_to_silver' AIRFLOW_CTX_EXECUTION_DATE='2026-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='16' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-01-01T00:00:00+00:00'
+[2026-01-02T23:11:27.821+0000] {local_task_job_runner.py:302} WARNING - State of this instance has been externally set to None. Terminating instance.
+[2026-01-02T23:11:27.825+0000] {process_utils.py:131} INFO - Sending 15 to group 812. PIDs of all processes in the group: [813, 812]
+[2026-01-02T23:11:27.825+0000] {process_utils.py:86} INFO - Sending the signal 15 to group 812
+[2026-01-02T23:11:27.827+0000] {taskinstance.py:2450} ERROR - Received SIGTERM. Terminating subprocesses.
+[2026-01-02T23:11:27.828+0000] {clientserver.py:538} INFO - Error while receiving.
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/py4j/clientserver.py", line 511, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+                          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/socket.py", line 706, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 2452, in signal_handler
+    raise AirflowException("Task received SIGTERM signal")
+airflow.exceptions.AirflowException: Task received SIGTERM signal
+[2026-01-02T23:11:27.831+0000] {clientserver.py:543} INFO - Closing down clientserver connection
+[2026-01-02T23:11:27.839+0000] {java_gateway.py:1055} ERROR - Exception while sending command.
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/py4j/clientserver.py", line 511, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+                          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/socket.py", line 706, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 2452, in signal_handler
+    raise AirflowException("Task received SIGTERM signal")
+airflow.exceptions.AirflowException: Task received SIGTERM signal
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/py4j/java_gateway.py", line 1038, in send_command
+    response = connection.send_command(command)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/py4j/clientserver.py", line 539, in send_command
+    raise Py4JNetworkError(
+py4j.protocol.Py4JNetworkError: Error while sending or receiving
+[2026-01-02T23:11:27.842+0000] {clientserver.py:543} INFO - Closing down clientserver connection
+[2026-01-02T23:11:27.872+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/operators/python.py", line 199, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/operators/python.py", line 216, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/src/transformations/bronze_to_silver.py", line 630, in transform_prices_bronze_to_silver
+    conflict_tickers = _conflicting_version_tickers(prices, audit_dir)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/src/transformations/bronze_to_silver.py", line 138, in _conflicting_version_tickers
+    if conflicts.limit(1).count() > 0:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/pyspark/sql/dataframe.py", line 1234, in count
+    return int(self._jdf.count())
+               ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/py4j/java_gateway.py", line 1322, in __call__
+    return_value = get_return_value(
+                   ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/pyspark/errors/exceptions/captured.py", line 179, in deco
+    return f(*a, **kw)
+           ^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/py4j/protocol.py", line 334, in get_return_value
+    raise Py4JError(
+py4j.protocol.Py4JError: An error occurred while calling o258.count
+[2026-01-02T23:11:27.892+0000] {taskinstance.py:1138} INFO - Marking task as UP_FOR_RETRY. dag_id=equity_market_etl, task_id=transform_prices_bronze_to_silver, execution_date=20260101T000000, start_date=20260102T231112, end_date=20260102T231127
+[2026-01-02T23:11:27.919+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 63 for task transform_prices_bronze_to_silver (An error occurred while calling o258.count; 812)
+[2026-01-02T23:11:28.348+0000] {process_utils.py:79} INFO - Process psutil.Process(pid=813, status='terminated', started='23:11:11') (813) terminated with exit code None
+[2026-01-02T23:11:28.349+0000] {process_utils.py:79} INFO - Process psutil.Process(pid=812, status='terminated', exitcode=1, started='23:11:11') (812) terminated with exit code 1

@@ -1,0 +1,14 @@
+[2026-01-02T12:15:05.491+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: equity_market_etl.bronze_data_quality_checks scheduled__2026-01-01T00:00:00+00:00 [queued]>
+[2026-01-02T12:15:05.495+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: equity_market_etl.bronze_data_quality_checks scheduled__2026-01-01T00:00:00+00:00 [queued]>
+[2026-01-02T12:15:05.495+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 4
+[2026-01-02T12:15:05.500+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): bronze_data_quality_checks> on 2026-01-01 00:00:00+00:00
+[2026-01-02T12:15:05.504+0000] {standard_task_runner.py:60} INFO - Started process 15286 to run task
+[2026-01-02T12:15:05.506+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'equity_market_etl', 'bronze_data_quality_checks', 'scheduled__2026-01-01T00:00:00+00:00', '--job-id', '10', '--raw', '--subdir', 'DAGS_FOLDER/equity_market_etl_dag.py', '--cfg-path', '/tmp/tmp1gn0fo3d']
+[2026-01-02T12:15:05.507+0000] {standard_task_runner.py:88} INFO - Job 10: Subtask bronze_data_quality_checks
+[2026-01-02T12:15:05.517+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.8/site-packages/***/settings.py:194 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2026-01-02T12:15:05.538+0000] {task_command.py:423} INFO - Running <TaskInstance: equity_market_etl.bronze_data_quality_checks scheduled__2026-01-01T00:00:00+00:00 [running]> on host cd6abd4edfdb
+[2026-01-02T12:15:05.579+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data-eng' AIRFLOW_CTX_DAG_ID='equity_market_etl' AIRFLOW_CTX_TASK_ID='bronze_data_quality_checks' AIRFLOW_CTX_EXECUTION_DATE='2026-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-01-01T00:00:00+00:00'
+[2026-01-02T12:15:26.980+0000] {python.py:201} INFO - Done. Returned value was: None
+[2026-01-02T12:15:26.988+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=equity_market_etl, task_id=bronze_data_quality_checks, execution_date=20260101T000000, start_date=20260102T121505, end_date=20260102T121526
+[2026-01-02T12:15:27.007+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2026-01-02T12:15:27.021+0000] {taskinstance.py:3280} INFO - 2 downstream tasks scheduled from follow-on schedule check

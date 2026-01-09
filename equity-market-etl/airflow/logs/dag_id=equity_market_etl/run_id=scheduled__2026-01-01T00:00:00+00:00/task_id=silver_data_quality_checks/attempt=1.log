@@ -1,0 +1,29 @@
+[2026-01-02T12:35:04.904+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: equity_market_etl.silver_data_quality_checks scheduled__2026-01-01T00:00:00+00:00 [queued]>
+[2026-01-02T12:35:04.908+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: equity_market_etl.silver_data_quality_checks scheduled__2026-01-01T00:00:00+00:00 [queued]>
+[2026-01-02T12:35:04.909+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 4
+[2026-01-02T12:35:04.915+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): silver_data_quality_checks> on 2026-01-01 00:00:00+00:00
+[2026-01-02T12:35:04.918+0000] {standard_task_runner.py:60} INFO - Started process 16309 to run task
+[2026-01-02T12:35:04.920+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'equity_market_etl', 'silver_data_quality_checks', 'scheduled__2026-01-01T00:00:00+00:00', '--job-id', '13', '--raw', '--subdir', 'DAGS_FOLDER/equity_market_etl_dag.py', '--cfg-path', '/tmp/tmprhxue6mo']
+[2026-01-02T12:35:04.922+0000] {standard_task_runner.py:88} INFO - Job 13: Subtask silver_data_quality_checks
+[2026-01-02T12:35:04.933+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.8/site-packages/***/settings.py:194 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2026-01-02T12:35:04.958+0000] {task_command.py:423} INFO - Running <TaskInstance: equity_market_etl.silver_data_quality_checks scheduled__2026-01-01T00:00:00+00:00 [running]> on host cd6abd4edfdb
+[2026-01-02T12:35:05.000+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data-eng' AIRFLOW_CTX_DAG_ID='equity_market_etl' AIRFLOW_CTX_TASK_ID='silver_data_quality_checks' AIRFLOW_CTX_EXECUTION_DATE='2026-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-01-01T00:00:00+00:00'
+[2026-01-02T12:48:16.682+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 199, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 216, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/src/validation/data_quality_checks.py", line 259, in silver_checks
+    _assert_positive(prices, ["close", "adj_close"], "silver_prices")
+  File "/opt/airflow/src/validation/data_quality_checks.py", line 131, in _assert_positive
+    _fail_if(
+  File "/opt/airflow/src/validation/data_quality_checks.py", line 25, in _fail_if
+    raise DataQualityError(f"[{dataset_name}] Rule={rule}. {detail}")
+src.validation.data_quality_checks.DataQualityError: [silver_prices] Rule=positive. Column=close
+[2026-01-02T12:48:16.690+0000] {taskinstance.py:1138} INFO - Marking task as UP_FOR_RETRY. dag_id=equity_market_etl, task_id=silver_data_quality_checks, execution_date=20260101T000000, start_date=20260102T123504, end_date=20260102T124816
+[2026-01-02T12:48:16.703+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 13 for task silver_data_quality_checks ([silver_prices] Rule=positive. Column=close; 16309)
+[2026-01-02T12:48:16.739+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2026-01-02T12:48:16.754+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

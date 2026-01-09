@@ -1,0 +1,37 @@
+[2026-01-02T15:03:36.259+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: equity_market_etl.create_gold_prices_enriched scheduled__2026-01-01T00:00:00+00:00 [queued]>
+[2026-01-02T15:03:36.263+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: equity_market_etl.create_gold_prices_enriched scheduled__2026-01-01T00:00:00+00:00 [queued]>
+[2026-01-02T15:03:36.263+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 4
+[2026-01-02T15:03:36.268+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): create_gold_prices_enriched> on 2026-01-01 00:00:00+00:00
+[2026-01-02T15:03:36.272+0000] {standard_task_runner.py:60} INFO - Started process 855 to run task
+[2026-01-02T15:03:36.274+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'equity_market_etl', 'create_gold_prices_enriched', 'scheduled__2026-01-01T00:00:00+00:00', '--job-id', '30', '--raw', '--subdir', 'DAGS_FOLDER/equity_market_etl_dag.py', '--cfg-path', '/tmp/tmpbu5ltbe3']
+[2026-01-02T15:03:36.275+0000] {standard_task_runner.py:88} INFO - Job 30: Subtask create_gold_prices_enriched
+[2026-01-02T15:03:36.283+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.11/site-packages/***/settings.py:194 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2026-01-02T15:03:36.299+0000] {task_command.py:423} INFO - Running <TaskInstance: equity_market_etl.create_gold_prices_enriched scheduled__2026-01-01T00:00:00+00:00 [running]> on host 384f5f10db0f
+[2026-01-02T15:03:36.445+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data-eng' AIRFLOW_CTX_DAG_ID='equity_market_etl' AIRFLOW_CTX_TASK_ID='create_gold_prices_enriched' AIRFLOW_CTX_EXECUTION_DATE='2026-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-01-01T00:00:00+00:00'
+[2026-01-02T15:03:49.969+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/operators/python.py", line 199, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/operators/python.py", line 216, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/src/transformations/silver_to_gold.py", line 303, in create_gold_enriched
+    bad_daily = enriched.filter(bad_daily_required | bad_daily_bounds)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/pyspark/sql/dataframe.py", line 3325, in filter
+    jdf = self._jdf.filter(condition._jc)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/py4j/java_gateway.py", line 1322, in __call__
+    return_value = get_return_value(
+                   ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/pyspark/errors/exceptions/captured.py", line 185, in deco
+    raise converted from None
+pyspark.errors.exceptions.captured.AnalysisException: It is not allowed to use window functions inside WHERE clause.
+[2026-01-02T15:03:49.985+0000] {taskinstance.py:1138} INFO - Marking task as UP_FOR_RETRY. dag_id=equity_market_etl, task_id=create_gold_prices_enriched, execution_date=20260101T000000, start_date=20260102T150336, end_date=20260102T150349
+[2026-01-02T15:03:49.996+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 30 for task create_gold_prices_enriched (It is not allowed to use window functions inside WHERE clause.; 855)
+[2026-01-02T15:03:50.031+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2026-01-02T15:03:50.042+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

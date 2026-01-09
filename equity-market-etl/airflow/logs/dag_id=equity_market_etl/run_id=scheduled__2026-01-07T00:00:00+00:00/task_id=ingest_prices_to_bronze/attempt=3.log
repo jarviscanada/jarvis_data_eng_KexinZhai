@@ -1,0 +1,152 @@
+[2026-01-08T01:12:51.810+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: equity_market_etl.ingest_prices_to_bronze scheduled__2026-01-07T00:00:00+00:00 [queued]>
+[2026-01-08T01:12:51.814+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: equity_market_etl.ingest_prices_to_bronze scheduled__2026-01-07T00:00:00+00:00 [queued]>
+[2026-01-08T01:12:51.814+0000] {taskinstance.py:2170} INFO - Starting attempt 3 of 4
+[2026-01-08T01:12:51.820+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): ingest_prices_to_bronze> on 2026-01-07 00:00:00+00:00
+[2026-01-08T01:12:51.823+0000] {standard_task_runner.py:60} INFO - Started process 5662 to run task
+[2026-01-08T01:12:51.825+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'equity_market_etl', 'ingest_prices_to_bronze', 'scheduled__2026-01-07T00:00:00+00:00', '--job-id', '113', '--raw', '--subdir', 'DAGS_FOLDER/equity_market_etl_dag.py', '--cfg-path', '/tmp/tmpa704byk8']
+[2026-01-08T01:12:51.826+0000] {standard_task_runner.py:88} INFO - Job 113: Subtask ingest_prices_to_bronze
+[2026-01-08T01:12:51.833+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.11/site-packages/***/settings.py:194 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2026-01-08T01:12:51.848+0000] {task_command.py:423} INFO - Running <TaskInstance: equity_market_etl.ingest_prices_to_bronze scheduled__2026-01-07T00:00:00+00:00 [running]> on host 5774462772ae
+[2026-01-08T01:12:51.881+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data-eng' AIRFLOW_CTX_DAG_ID='equity_market_etl' AIRFLOW_CTX_TASK_ID='ingest_prices_to_bronze' AIRFLOW_CTX_EXECUTION_DATE='2026-01-07T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='3' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-01-07T00:00:00+00:00'
+[2026-01-08T01:12:56.269+0000] {logging_mixin.py:188} INFO - [ingest_prices_to_bronze] Wrote skipped report: /opt/data/bronze/prices_audit/skipped_prices_files.txt
+[2026-01-08T01:43:53.570+0000] {local_task_job_runner.py:302} WARNING - State of this instance has been externally set to up_for_retry. Terminating instance.
+[2026-01-08T01:43:53.572+0000] {process_utils.py:131} INFO - Sending 15 to group 5662. PIDs of all processes in the group: [5663, 5662]
+[2026-01-08T01:43:53.573+0000] {process_utils.py:86} INFO - Sending the signal 15 to group 5662
+[2026-01-08T01:43:53.573+0000] {taskinstance.py:2450} ERROR - Received SIGTERM. Terminating subprocesses.
+[2026-01-08T01:43:53.573+0000] {clientserver.py:538} INFO - Error while receiving.
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/py4j/clientserver.py", line 511, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+                          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/socket.py", line 706, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 2452, in signal_handler
+    raise AirflowException("Task received SIGTERM signal")
+airflow.exceptions.AirflowException: Task received SIGTERM signal
+[2026-01-08T01:43:53.576+0000] {clientserver.py:543} INFO - Closing down clientserver connection
+[2026-01-08T01:43:53.576+0000] {java_gateway.py:1055} ERROR - Exception while sending command.
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/py4j/clientserver.py", line 511, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+                          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/socket.py", line 706, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 2452, in signal_handler
+    raise AirflowException("Task received SIGTERM signal")
+airflow.exceptions.AirflowException: Task received SIGTERM signal
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/py4j/java_gateway.py", line 1038, in send_command
+    response = connection.send_command(command)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/py4j/clientserver.py", line 539, in send_command
+    raise Py4JNetworkError(
+py4j.protocol.Py4JNetworkError: Error while sending or receiving
+[2026-01-08T01:43:53.577+0000] {clientserver.py:543} INFO - Closing down clientserver connection
+[2026-01-08T01:43:54.110+0000] {clientserver.py:538} INFO - Error while receiving.
+Traceback (most recent call last):
+  File "/opt/airflow/src/ingestion/ingest_prices.py", line 139, in ingest_prices_to_bronze
+    df_out = df if df_out is None else df_out.unionByName(df, allowMissingColumns=True)
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/pyspark/sql/dataframe.py", line 4037, in unionByName
+    return DataFrame(self._jdf.unionByName(other._jdf, allowMissingColumns), self.sparkSession)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/py4j/java_gateway.py", line 1322, in __call__
+    return_value = get_return_value(
+                   ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/pyspark/errors/exceptions/captured.py", line 179, in deco
+    return f(*a, **kw)
+           ^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/py4j/protocol.py", line 334, in get_return_value
+    raise Py4JError(
+py4j.protocol.Py4JError: An error occurred while calling o39614.unionByName
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/py4j/clientserver.py", line 516, in send_command
+    raise Py4JNetworkError("Answer from Java side is empty")
+py4j.protocol.Py4JNetworkError: Answer from Java side is empty
+[2026-01-08T01:43:54.114+0000] {clientserver.py:543} INFO - Closing down clientserver connection
+[2026-01-08T01:43:54.114+0000] {java_gateway.py:1055} ERROR - Exception while sending command.
+Traceback (most recent call last):
+  File "/opt/airflow/src/ingestion/ingest_prices.py", line 139, in ingest_prices_to_bronze
+    df_out = df if df_out is None else df_out.unionByName(df, allowMissingColumns=True)
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/pyspark/sql/dataframe.py", line 4037, in unionByName
+    return DataFrame(self._jdf.unionByName(other._jdf, allowMissingColumns), self.sparkSession)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/py4j/java_gateway.py", line 1322, in __call__
+    return_value = get_return_value(
+                   ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/pyspark/errors/exceptions/captured.py", line 179, in deco
+    return f(*a, **kw)
+           ^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/py4j/protocol.py", line 334, in get_return_value
+    raise Py4JError(
+py4j.protocol.Py4JError: An error occurred while calling o39614.unionByName
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/py4j/clientserver.py", line 516, in send_command
+    raise Py4JNetworkError("Answer from Java side is empty")
+py4j.protocol.Py4JNetworkError: Answer from Java side is empty
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/py4j/java_gateway.py", line 1038, in send_command
+    response = connection.send_command(command)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/py4j/clientserver.py", line 539, in send_command
+    raise Py4JNetworkError(
+py4j.protocol.Py4JNetworkError: Error while sending or receiving
+[2026-01-08T01:43:54.115+0000] {clientserver.py:543} INFO - Closing down clientserver connection
+[2026-01-08T01:43:54.116+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/opt/airflow/src/ingestion/ingest_prices.py", line 139, in ingest_prices_to_bronze
+    df_out = df if df_out is None else df_out.unionByName(df, allowMissingColumns=True)
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/pyspark/sql/dataframe.py", line 4037, in unionByName
+    return DataFrame(self._jdf.unionByName(other._jdf, allowMissingColumns), self.sparkSession)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/py4j/java_gateway.py", line 1322, in __call__
+    return_value = get_return_value(
+                   ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/pyspark/errors/exceptions/captured.py", line 179, in deco
+    return f(*a, **kw)
+           ^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/py4j/protocol.py", line 334, in get_return_value
+    raise Py4JError(
+py4j.protocol.Py4JError: An error occurred while calling o39614.unionByName
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/operators/python.py", line 199, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/operators/python.py", line 216, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/src/ingestion/ingest_prices.py", line 151, in ingest_prices_to_bronze
+    spark.stop()
+  File "/home/airflow/.local/lib/python3.11/site-packages/pyspark/sql/session.py", line 1799, in stop
+    self._jvm.SparkSession.clearDefaultSession()
+    ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/py4j/java_gateway.py", line 1725, in __getattr__
+    raise Py4JError(message)
+py4j.protocol.Py4JError: SparkSession does not exist in the JVM
+[2026-01-08T01:43:54.123+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=equity_market_etl, task_id=ingest_prices_to_bronze, execution_date=20260107T000000, start_date=20260108T011251, end_date=20260108T014354
+[2026-01-08T01:43:54.123+0000] {equity_market_etl_dag.py:45} ERROR - [ALERT] DAG=equity_market_etl TASK=ingest_prices_to_bronze RUN=scheduled__2026-01-07T00:00:00+00:00 ERROR=SparkSession does not exist in the JVM
+[2026-01-08T01:43:54.130+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 113 for task ingest_prices_to_bronze (SparkSession does not exist in the JVM; 5662)
+[2026-01-08T01:43:54.132+0000] {process_utils.py:79} INFO - Process psutil.Process(pid=5663, status='terminated', started='01:12:51') (5663) terminated with exit code None
+[2026-01-08T01:43:54.137+0000] {process_utils.py:79} INFO - Process psutil.Process(pid=5662, status='terminated', exitcode=1, started='01:12:51') (5662) terminated with exit code 1
