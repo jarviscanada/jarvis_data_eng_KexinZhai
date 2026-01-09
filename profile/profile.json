@@ -25,12 +25,12 @@
   "github_repo_root_url": "https://github.com/jarviscanada/jarvis_data_eng_KexinZhai",
   "highlighted_projects": [
     {
-      "description": "Built a laddered momentum ETF strategy that used time-diversified tranches to enhance returns while reducing volatility and drawdowns; implemented a 2-tranche system with staggered 2-week investments to balance momentum capture and trend responsiveness; backtested the strategy on sector ETFs (2020?2024) in Python and showed outperformance over SPY on risk-adjusted metrics (Sharpe/Sortino) with lower drawdowns; and automated weekly ETF selection plus reporting to demonstrate the laddering effectiveness for momentum portfolios.",
+      "description": "Built a laddered momentum ETF strategy that used time-diversified tranches to enhance returns while reducing volatility and drawdowns; implemented a 2-tranche system with staggered 2-week investments to balance momentum capture and trend responsiveness; backtested the strategy on sector ETFs (2020-2024) in Python and showed outperformance over SPY on risk-adjusted metrics (Sharpe/Sortino) with lower drawdowns; and automated weekly ETF selection plus reporting to demonstrate the laddering effectiveness for momentum portfolios.",
       "git_url": null,
       "name": "Adaptive Laddered ETF Momentum Strategy for Portfolio Optimization"
     },
     {
-      "description": "Guided an innovation-strategy study that compared Canada?s innovation strengths (R\u0026D, talent, institutions) with leading countries using Global Innovation Index data; collected and cleaned fragmented country-level innovation indicators to increase dataset reliability in Python (Pandas, Seaborn); applied clustering and feature-importance modeling to identify key drivers of innovation success across 100+ indicators; and developed an AI chatbot (Langflow + LLM) to deliver interactive insights and authored actionable policy recommendations.",
+      "description": "Guided an innovation-strategy study that compared Canada's innovation strengths (R\u0026D, talent, institutions) with leading countries using Global Innovation Index data; collected and cleaned fragmented country-level innovation indicators to increase dataset reliability in Python (Pandas, Seaborn); applied clustering and feature-importance modeling to identify key drivers of innovation success across 100+ indicators; and developed an AI chatbot (Langflow + LLM) to deliver interactive insights and authored actionable policy recommendations.",
       "git_url": null,
       "name": "Innovation Strategy Development for Canada"
     },
@@ -45,7 +45,7 @@
       "name": "Machine Learning Pipeline for Weekly Return Forecasting in Equity Markets"
     },
     {
-      "description": "Partnered with APOPO to analyze rat-training video data and assessed how early exposure affects odor-preference behavior for landmine detection; processed large volumes of video-derived behavioral metrics to ensure reliability before statistical modeling; used PCA and mixed-effects models to identify key training factors and optimized model selection for interpretability; and delivered training recommendations and co-authored a report to enhance APOPO?s conditioning program.",
+      "description": "Partnered with APOPO to analyze rat-training video data and assessed how early exposure affects odor-preference behavior for landmine detection; processed large volumes of video-derived behavioral metrics to ensure reliability before statistical modeling; used PCA and mixed-effects models to identify key training factors and optimized model selection for interpretability; and delivered training recommendations and co-authored a report to enhance APOPO's conditioning program.",
       "git_url": null,
       "name": "APOPO Project on Rat Odor Preference Behavior for Landmine Detection"
     },
@@ -72,19 +72,19 @@
       "name": "Cluster Monitor"
     },
     {
-      "description": "",
+      "description": "Built a Java command-line “grep” application and integrated it into a complete Maven/IntelliJ workflow. Started by treating the provided demo JAR as a black box to confirm expected behavior (given a regex, root directory, and output file, recursively walk files, match lines, and write hits to the output), then practiced Java regex by implementing the RegexExc interface (e.g., validating JPEG filenames, simplified IP addresses, and empty lines). Designed a JavaGrep interface with JavaGrepImp where process() orchestrates the pipeline—list files under rootPath, read line-by-line, filter via containsPattern, and write matches—using SLF4J with a log4j binding for structured logging. Extended the project with Java 8 streams/lambdas by implementing LambdaStreamExc in LambdaStreamImp and building JavaGrepLambdaImp, replacing loops with Files.walk and Files.lines stream pipelines. Packaged the app with Maven Shade, containerized it with a Dockerfile based on OpenJDK 8, built a <docker_user>/grep image, tested locally with mounted data/log volumes, and pushed the image to Docker Hub. Tech stack: Java, Maven (Shade), IntelliJ, SLF4J/log4j, Java 8 Streams/Lambdas, Docker (OpenJDK 8), Git/GitFlow.",
       "git_url": "/core_java",
       "name": "Core Java Apps"
     },
     {
       "description": "",
-      "git_url": "/springboot",
-      "name": "Springboot App"
+      "git_url": "/python_data_anlytics",
+      "name": "Python Data Analytics"
     },
     {
       "description": "",
-      "git_url": "/python_data_anlytics",
-      "name": "Python Data Analytics"
+      "git_url": "/springboot",
+      "name": "Springboot App"
     },
     {
       "description": "",
@@ -109,14 +109,14 @@
         "Quantium Data Analytics Virtual Experience Program on Forage",
         "KPMG Data Analytics Consulting Virtual Internship on Forage",
         "BCG Data Science \u0026 Analytics Virtual Experience Program on Forage",
-        "IBM Business Analyst Work Placement Education Program: Digital Transformation?The Road to Future-Ready Organizations"
+        "IBM Business Analyst Work Placement Education Program: Digital Transformation -- The Road to Future-Ready Organizations"
       ],
       "title": "Certificates"
     },
     {
       "bullets": [
         "Vice President, Chinese Students and Scholars Association at University of Toronto Scarborough: Negotiated sponsorships, drafted contracts, led directors in task delegation, and fostered sponsor relations to boost mutual recognition.",
-        "Volunteer Leader, Math in Motion?Girls in Gear!: Guided the new student leaders to take action within groups harmoniously in order to fulfill their duties successfully; coached leaders to learn new design tools quickly and efficiently, especially if they were lagging behind before big events"
+        "Volunteer Leader, Math in Motion-Girls in Gear!: Guided the new student leaders to take action within groups harmoniously in order to fulfill their duties successfully; coached leaders to learn new design tools quickly and efficiently, especially if they were lagging behind before big events"
       ],
       "title": "Activities/Hobbies"
     }
@@ -130,7 +130,7 @@
     },
     {
       "company": "Ministry of Education",
-      "description": "Performed manual and automated testing for Ministry of Education applications using Selenium, HP ALM, and PL/SQL Developer, ensuring defect-free production releases while managing multiple projects and maintaining communication with cross-functional teams; executed the full testing lifecycle?requirements review, test planning with traceability matrices, test-case execution in HP ALM, and results analysis?while using Azure DevOps to log defects and follow up with development teams for resolution; mastered HP ALM, PL/SQL Developer, and Selenium frameworks to optimize testing efficiency, implemented automated regression testing, and contributed to process improvements through DevOps collaboration and documentation standardization.",
+      "description": "Performed manual and automated testing for Ministry of Education applications using Selenium, HP ALM, and PL/SQL Developer, ensuring defect-free production releases while managing multiple projects and maintaining communication with cross-functional teams; executed the full testing lifecycle including requirements review, test planning with traceability matrices, test-case execution in HP ALM, and results analysis, while using Azure DevOps to log defects and follow up with development teams for resolution; mastered HP ALM, PL/SQL Developer, and Selenium frameworks to optimize testing efficiency, implemented automated regression testing, and contributed to process improvements through DevOps collaboration and documentation standardization.",
       "duration": "September 2021 - April 2022",
       "title": "IT Quality Assurance Assistant"
     }
@@ -138,10 +138,15 @@
   "skills": {
     "competent": [
       "C",
-      "Databricks",
+      "HTML/CSS",
+      "JavaScript",
+      "JUnit",
       "Docker",
       "PySpark",
-      "Azure"
+      "DevOps",
+      "Selenium",
+      "Bootstrap",
+      "Cloud computing (AWS, Azure, GCP)"
     ],
     "familiar": [
       "Angular",
@@ -156,13 +161,18 @@
     ],
     "proficient": [
       "Python",
+      "Databricks",
       "Java",
       "Linux/Bash",
       "RDBMS/SQL",
       "R",
       "Agile/Scrum",
-      "Git"
+      "Git",
+      "AI/NLP (LLMs, Multi-agent Architecture, OpenAI API, Prompt Engineering)",
+      "Machine/ Deep Learning (TensorFlow, Pytorch)",
+      "LaTeX",
+      "MATLAB"
     ]
   },
-  "summary": "I studied at the University of Toronto (BSc, then MEng focused on analytics/ML), and I?m a data/analytics-oriented engineer with recent experience building small end-to-end systems and doing applied machine learning. On the technical side I work most comfortably in Python, Java, Linux/Bash, and SQL/RDBMS, and I?ve used Docker, PySpark, Databricks, and Azure for data workloads. In school and personal projects I?ve built things across the stack: a Linux cluster monitor that ingests host metrics into PostgreSQL with Bash/Docker; quantitative and ML projects in Python (ETF momentum, equity-return forecasting, deepfake detection); and several database / web apps where I designed schemas and wired up CRUD logic. My work experience backs that up: at GiftCash I worked with real marketplace data, pricing tools, SellerCloud, and repricing workflows; at the Ministry of Education I ran full QA cycles with Selenium, HP ALM, PL/SQL, and Azure DevOps to keep releases clean. I like staying in tech spaces that are practical, collaborative, and data-first. I care about showing I can execute, not just list tools."
+  "summary": "I studied at the University of Toronto (BSc, then MEng focused on analytics/ML), and I'm a data/analytics-oriented engineer with recent experience building small end-to-end systems and doing applied machine learning. On the technical side I work most comfortably in Python, Java, Linux/Bash, and SQL/RDBMS, and I've used Docker, PySpark, Databricks, and Azure for data workloads. In school and personal projects I've built things across the stack: a Linux cluster monitor that ingests host metrics into PostgreSQL with Bash/Docker; quantitative and ML projects in Python (ETF momentum, equity-return forecasting, deepfake detection); and several database / web apps where I designed schemas and wired up CRUD logic. My work experience backs that up: at GiftCash I worked with real marketplace data, pricing tools, SellerCloud, and repricing workflows; at the Ministry of Education I ran full QA cycles with Selenium, HP ALM, PL/SQL, and Azure DevOps to keep releases clean. I like staying in tech spaces that are practical, collaborative, and data-first. I care about showing I can execute, not just list tools."
 }
