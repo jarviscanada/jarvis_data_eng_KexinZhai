@@ -1,8 +1,67 @@
-# Jarvis Data Engineering Training
-1. [Linux Cluster Monitoring Agent (Linux and SQL)](./linux_sql) In-progress
-2. [Core Java Apps](./core_java) In-progress
-3. [Python Data Analytics](./python_data_analytics) In-progress
-4. [Spring Boot Trading REST API](./springboot) In-progress
-5. [Javascript Front End](./javascript) In-progress
-6. [Cloud/DevOps](./cloud_devops) In-progress
+# Kexin Zhai . Jarvis Consulting
 
+I studied at the University of Toronto (BSc, then MEng focused on analytics/ML), and I'm a data/analytics-oriented engineer with recent experience building small end-to-end systems and doing applied machine learning. On the technical side I work most comfortably in Python, Java, Linux/Bash, and SQL/RDBMS, and I've used Docker, PySpark, Databricks, and Azure for data workloads. I have built full-stack projects including a Linux cluster monitor, several quantitative and ML applications in Python, and database/web apps with designed schemas and wired up CRUD logic both academically and personally. My work experience backs that up: at GiftCash I worked with real marketplace data, pricing tools, SellerCloud, and repricing workflows; at the Ministry of Education I ran full QA cycles with Selenium, HP ALM, PL/SQL, and Azure DevOps to keep releases clean. I like staying in tech spaces that are practical, collaborative, and data-first. I care about showing I can execute, not just list tools.
+
+## Skills
+
+**Proficient:** Python, Databricks, Java, Linux/Bash, RDBMS/SQL, R, Agile/Scrum, Git, AI/NLP (LLMs, Multi-agent Architecture, OpenAI API, Prompt Engineering), Machine/ Deep Learning (TensorFlow, Pytorch), LaTeX, MATLAB
+
+**Competent:** C, HTML/CSS, JavaScript, JUnit, Docker, PySpark, DevOps, Selenium, Bootstrap, Cloud computing (AWS, Azure, GCP)
+
+**Familiar:** Angular, Tableau, Power BI, Spark, Hadoop, Postman, MIPS, REST APIs, CI/CD
+
+## Jarvis Projects
+
+Project source code: [https://github.com/jarviscanada/jarvis_data_eng_KexinZhai](https://github.com/jarviscanada/jarvis_data_eng_KexinZhai)
+
+
+**Cluster Monitor** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_KexinZhai/tree/master/linux_sql)]: Built a lightweight Linux cluster monitoring solution that collects host hardware info and minute-level resource metrics with Bash scripts and ships them to a centralized PostgreSQL instance running in Docker. Automated data ingestion with cron, standardized the schema with SQL DDL, and provided sample analytical queries for capacity planning and troubleshooting. Tech stack: Bash, Docker, PostgreSQL, cron, Git/GitFlow, Linux command-line tools (lscpu, vmstat, df, awk).
+
+**Core Java Apps** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_KexinZhai/tree/master/core_java)]: Built a Java command-line “grep” application and integrated it into a complete Maven/IntelliJ workflow. Started by treating the provided demo JAR as a black box to confirm expected behavior (given a regex, root directory, and output file, recursively walk files, match lines, and write hits to the output), then practiced Java regex by implementing the RegexExc interface (e.g., validating JPEG filenames, simplified IP addresses, and empty lines). Designed a JavaGrep interface with JavaGrepImp where process() orchestrates the pipeline—list files under rootPath, read line-by-line, filter via containsPattern, and write matches—using SLF4J with a log4j binding for structured logging. Extended the project with Java 8 streams/lambdas by implementing LambdaStreamExc in LambdaStreamImp and building JavaGrepLambdaImp, replacing loops with Files.walk and Files.lines stream pipelines. Packaged the app with Maven Shade, containerized it with a Dockerfile based on OpenJDK 8, built a <docker_user>/grep image, tested locally with mounted data/log volumes, and pushed the image to Docker Hub. Tech stack: Java, Maven (Shade), IntelliJ, SLF4J/log4j, Java 8 Streams/Lambdas, Docker (OpenJDK 8), Git/GitFlow.
+
+**Python Data Analytics** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_KexinZhai/tree/master/python_data_anlytics)]: Implemented a retail data analytics workflow by setting up a Docker-based Python/Jupyter environment and connecting to the Jarvis PostgreSQL data warehouse via psycopg2/SQLAlchemy to load the retail transaction table into Pandas. Explored and validated the dataset with SQL queries plus pd.read_sql/pd.read_csv, then built an end-to-end analytics notebook that computes invoice-level totals, visualizes invoice amount distributions (full data and trimmed to the first 85% quantiles), and produces core business KPIs (total orders, unique customers, unique SKUs, total revenue, and monthly revenue by YYYYMM). Extended the analysis with time-series and customer lifecycle features—monthly placed vs. canceled orders, monthly sales and sales growth, monthly active users, and new vs. existing users—and integrated an RFM-style customer value segmentation to support targeted retention and marketing decisions. Tech stack: Python, Jupyter Notebook, Pandas, NumPy, Matplotlib, SQL, PostgreSQL (Jarvis PSQL), psycopg2, SQLAlchemy, Docker, Git.
+
+**PySpark Pipeline** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_KexinZhai/tree/master/pyspark)]: Built an end-to-end equity-market ETL and analytics pipeline that ingests per-ticker daily OHLCV CSVs plus a company dimension table, standardizes them into a Raw → Bronze → Silver → Gold medallion layout, and produces analytics-ready datasets to rank “strong opportunities” by recent performance and risk. Orchestrated the workflow with an Airflow DAG running Spark jobs in Docker, enforced fail-fast data quality gates (schema/emptiness, unique ticker-date, valid prices/volumes, trading-day completeness, referential integrity for sector/industry), and persisted audit/quarantine artifacts with dataset/rule/column diagnostics for reproducibility. Generated Gold outputs including enriched price series with daily returns and rolling metrics, plus sector and industry analytics tables (e.g., sector_daily_returns, industry_volatility) for downstream screening and reporting. Tech stack: Python, PySpark, Apache Spark, Apache Airflow, Docker/Docker Compose, PostgreSQL, Parquet, exchange-calendars, SQL, pytest, Git.
+
+
+## Highlighted Projects
+**Adaptive Laddered ETF Momentum Strategy for Portfolio Optimization**: Built a laddered momentum ETF strategy that used time-diversified tranches to enhance returns while reducing volatility and drawdowns; implemented a 2-tranche system with staggered 2-week investments to balance momentum capture and trend responsiveness; backtested the strategy on sector ETFs (2020-2024) in Python and showed outperformance over SPY on risk-adjusted metrics (Sharpe/Sortino) with lower drawdowns; and automated weekly ETF selection plus reporting to demonstrate the laddering effectiveness for momentum portfolios.
+
+**Innovation Strategy Development for Canada**: Guided an innovation-strategy study that compared Canada's innovation strengths (R&D, talent, institutions) with leading countries using Global Innovation Index data; collected and cleaned fragmented country-level innovation indicators to increase dataset reliability in Python (Pandas, Seaborn); applied clustering and feature-importance modeling to identify key drivers of innovation success across 100+ indicators; and developed an AI chatbot (Langflow + LLM) to deliver interactive insights and authored actionable policy recommendations.
+
+**Deepfake Detection with CNNs and Object Detection**: Built a deepfake-detection pipeline using CNNs (InceptionV3, Xception, etc.) trained on 190K+ real/synthetic facial images; boosted accuracy by integrating YOLOv1 for face detection before classification; optimized performance through data augmentation and hyperparameter tuning while preventing overfitting; and tested model fairness across demographic groups and synthetic media types (GANs, StyleGAN).
+
+**Machine Learning Pipeline for Weekly Return Forecasting in Equity Markets**: Built a Python-based weekly equity-return forecasting system that enhanced a textbook model with novel volatility/wavelet features; curated multi-asset data (Yahoo Finance/FRED) and engineered a boosted pipeline with Ridge/Elastic Net/Bayesian modeling; validated the models using Sharpe Ratio, Profit Factor, and anti-overfitting techniques (bootstrapping/Monte Carlo); and delivered a 40-slide presentation plus technical notebook that showed a production-ready ML workflow for finance.
+
+**APOPO Project on Rat Odor Preference Behavior for Landmine Detection**: Partnered with APOPO to analyze rat-training video data and assessed how early exposure affects odor-preference behavior for landmine detection; processed large volumes of video-derived behavioral metrics to ensure reliability before statistical modeling; used PCA and mixed-effects models to identify key training factors and optimized model selection for interpretability; and delivered training recommendations and co-authored a report to enhance APOPO's conditioning program.
+
+**Bullet Journal Webpage Application** [[GitHub](https://github.com/UTSCCSCC01/finalprojects22-cyclist)]: Built a bullet-journal web app using Angular and Agile/Scrum, finishing frontend tasks from the backlog so the UI stood out from other diary apps; conducted user-centric testing to keep the features aligned with stakeholder standards and reported issues to the team for timely fixes; and tracked project progress with CI/CD tools, shared workflows, and collaboration with frontend/QA teams via Zoom, GitHub, and Discord.
+
+**MyBnB Database Design Project** [[GitHub](https://github.com/tianpai/CSCC43-project-2022-summer)]: Simulated core MyBnB operations (booking, rating, etc.) in SQL to better practice relational modeling and understand how real apps leverage databases; designed and developed a rental platform schema with normalized Java + SQL access so users could interact with the formulated database; and led the team by assigning tasks and supervising delivery to make sure features were finished in time for integration testing.
+
+
+## Professional Experiences
+
+**Junior Pricing Analyst, GiftCash (September 2023 - December 2023)**: Leveraged discounted gift cards and product-research tools such as JungleScout and Keepa to identify high-ROI Amazon products, and analyzed Buybox competition to determine optimal FBA/FBM strategies using a custom ROI calculator; managed product data in SellerCloud and coordinated online/offline purchasing teams to keep inventory at optimal levels while processing real-time buying decisions based on profitability analysis; monitored and repriced Amazon listings through Repricer, managed eBay listings with cross-platform price synchronization, and liaised with warehouse teams to ensure fulfillment compliance across both marketplaces.
+
+**IT Quality Assurance Assistant, Ministry of Education (September 2021 - April 2022)**: Performed manual and automated testing for Ministry of Education applications using Selenium, HP ALM, and PL/SQL Developer, ensuring defect-free production releases while managing multiple projects and maintaining communication with cross-functional teams; executed the full testing lifecycle including requirements review, test planning with traceability matrices, test-case execution in HP ALM, and results analysis, while using Azure DevOps to log defects and follow up with development teams for resolution; mastered HP ALM, PL/SQL Developer, and Selenium frameworks to optimize testing efficiency, implemented automated regression testing, and contributed to process improvements through DevOps collaboration and documentation standardization.
+
+
+## Education
+**University of Toronto (2024-2025)**, Master of Engineering, Mechanical & Industrial Engineering
+- Technical Emphasis in Data Analytics and Machine Learning, MEng Certificate in Financial Engineering
+- GPA: 3.97/4.0
+
+**University of Toronto Scarborough (2019-2024)**, Honours Bachelor of Science (Coop) with High Distinction, Computer and Mathematical Sciences
+- Specialist in Statistics (Machine Learning & Data Mining) with Major in Computer Science & Minor in Linguistics
+- Dean's List (2019, 2020, 2021, 2022, 2023, 2024)
+- GPA: 3.83/4.0
+
+
+## Miscellaneous
+- Quantium Data Analytics Virtual Experience Program on Forage
+- KPMG Data Analytics Consulting Virtual Internship on Forage
+- BCG Data Science & Analytics Virtual Experience Program on Forage
+- IBM Business Analyst Work Placement Education Program: Digital Transformation -- The Road to Future-Ready Organizations
+- Vice President, Chinese Students and Scholars Association at University of Toronto Scarborough: Negotiated sponsorships, drafted contracts, led directors in task delegation, and fostered sponsor relations to boost mutual recognition.
+- Volunteer Leader, Math in Motion - Girls in Gear!: Guided the new student leaders to take action within groups harmoniously; coached leaders to learn new design tools.

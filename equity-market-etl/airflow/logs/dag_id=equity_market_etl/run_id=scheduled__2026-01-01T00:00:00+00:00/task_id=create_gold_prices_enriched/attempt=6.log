@@ -1,0 +1,28 @@
+[2026-01-02T21:57:11.913+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: equity_market_etl.create_gold_prices_enriched scheduled__2026-01-01T00:00:00+00:00 [queued]>
+[2026-01-02T21:57:11.918+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: equity_market_etl.create_gold_prices_enriched scheduled__2026-01-01T00:00:00+00:00 [queued]>
+[2026-01-02T21:57:11.918+0000] {taskinstance.py:2170} INFO - Starting attempt 6 of 9
+[2026-01-02T21:57:11.924+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): create_gold_prices_enriched> on 2026-01-01 00:00:00+00:00
+[2026-01-02T21:57:11.927+0000] {standard_task_runner.py:60} INFO - Started process 701 to run task
+[2026-01-02T21:57:11.930+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'equity_market_etl', 'create_gold_prices_enriched', 'scheduled__2026-01-01T00:00:00+00:00', '--job-id', '52', '--raw', '--subdir', 'DAGS_FOLDER/equity_market_etl_dag.py', '--cfg-path', '/tmp/tmp6bjrx5h3']
+[2026-01-02T21:57:11.931+0000] {standard_task_runner.py:88} INFO - Job 52: Subtask create_gold_prices_enriched
+[2026-01-02T21:57:11.940+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.11/site-packages/***/settings.py:194 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2026-01-02T21:57:11.962+0000] {task_command.py:423} INFO - Running <TaskInstance: equity_market_etl.create_gold_prices_enriched scheduled__2026-01-01T00:00:00+00:00 [running]> on host 6352a8adaa40
+[2026-01-02T21:57:12.122+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data-eng' AIRFLOW_CTX_DAG_ID='equity_market_etl' AIRFLOW_CTX_TASK_ID='create_gold_prices_enriched' AIRFLOW_CTX_EXECUTION_DATE='2026-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='6' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-01-01T00:00:00+00:00'
+[2026-01-02T21:59:00.873+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/operators/python.py", line 199, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/operators/python.py", line 216, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/src/transformations/silver_to_gold.py", line 387, in create_gold_enriched
+    raise ValueError("[gold_prices_enriched] daily_return_invalid. See audit/bad_daily_return")
+ValueError: [gold_prices_enriched] daily_return_invalid. See audit/bad_daily_return
+[2026-01-02T21:59:00.882+0000] {taskinstance.py:1138} INFO - Marking task as UP_FOR_RETRY. dag_id=equity_market_etl, task_id=create_gold_prices_enriched, execution_date=20260101T000000, start_date=20260102T215711, end_date=20260102T215900
+[2026-01-02T21:59:00.891+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 52 for task create_gold_prices_enriched ([gold_prices_enriched] daily_return_invalid. See audit/bad_daily_return; 701)
+[2026-01-02T21:59:00.934+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2026-01-02T21:59:00.946+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check
