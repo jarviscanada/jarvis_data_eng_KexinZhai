@@ -44,12 +44,12 @@ skills:
     - Data Quality & Validation
     - Software QA & Automated Testing (pytest, Selenium, JUnit)
     - Docker
-    - Cloud Computing (AWS, Azure, GCP)
     - Linux/Bash
   # At least 5 skills
   familiar:
     - Angular
     - Front-end Development (HTML/CSS, JavaScript, Bootstrap)
+    - Cloud Computing (AWS, Azure, GCP)
     - Tableau
     - Power BI
     - Hadoop
