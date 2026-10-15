@@ -6,9 +6,9 @@ I studied at the University of Toronto (BSc, then MEng focused on analytics/ML),
 
 **Proficient:** Python, PySpark, Databricks, SQL/RDBMS (PostgreSQL), R, Java, Git/GitHub, Apache Airflow, Apache NiFi, HashiCorp Vault, ETL/ELT Pipelines, Postman, REST API Integration, AI/NLP (LLMs, Multi-agent Architecture, OpenAI API, Prompt Engineering), Machine/Deep Learning (TensorFlow, PyTorch), Confluence, Lucidchart, Agile/Scrum, LaTeX, MATLAB, MS Office, G Suite
 
-**Competent:** C, Starburst, Collibra, Data Modeling (SCD Type 2), Data & Cloud Analysis, Data Quality & Validation, Software QA & Automated Testing (pytest, Selenium, JUnit), Docker, Cloud Computing (AWS, Azure, GCP)
+**Competent:** C, Starburst, Collibra, Data Modeling (SCD Type 2), Data & Cloud Analysis, Data Quality & Validation, Software QA & Automated Testing (pytest, Selenium, JUnit), Docker, Cloud Computing (AWS, Azure, GCP), Linux/Bash
 
-**Familiar:** Angular, Front-end Development (HTML/CSS, JavaScript, Bootstrap), Tableau, Power BI, Hadoop, MIPS, Linux/Bash, CI/CD
+**Familiar:** Angular, Front-end Development (HTML/CSS, JavaScript, Bootstrap), Tableau, Power BI, Hadoop, MIPS, CI/CD
 
 ## Jarvis Projects
 

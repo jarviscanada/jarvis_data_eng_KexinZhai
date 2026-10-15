@@ -45,6 +45,7 @@ skills:
     - Software QA & Automated Testing (pytest, Selenium, JUnit)
     - Docker
     - Cloud Computing (AWS, Azure, GCP)
+    - Linux/Bash
   # At least 5 skills
   familiar:
     - Angular
@@ -53,7 +54,6 @@ skills:
     - Power BI
     - Hadoop
     - MIPS
-    - Linux/Bash
     - CI/CD
 # List of Jarvis projects
 jarvis_projects:

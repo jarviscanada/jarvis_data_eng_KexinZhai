@@ -126,7 +126,8 @@
       "Data Quality \u0026 Validation",
       "Software QA \u0026 Automated Testing (pytest, Selenium, JUnit)",
       "Docker",
-      "Cloud Computing (AWS, Azure, GCP)"
+      "Cloud Computing (AWS, Azure, GCP)",
+      "Linux/Bash"
     ],
     "familiar": [
       "Angular",
@@ -135,7 +136,6 @@
       "Power BI",
       "Hadoop",
       "MIPS",
-      "Linux/Bash",
       "CI/CD"
     ],
     "proficient": [
